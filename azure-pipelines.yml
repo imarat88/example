@@ -2,6 +2,11 @@ pool:
   name: default
 
 steps:
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+
 - task: MSBuild@1
   inputs:
     solution: ./src/*.sln
